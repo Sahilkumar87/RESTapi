@@ -7,7 +7,7 @@ const { default: mongoose } = require('mongoose');
 const DB_PATH = "mongodb+srv://root:root@completecoding.u1asz.mongodb.net/todo?retryWrites=true&w=majority&appName=CompleteCoding";
 
 //Local Module
-
+const todoItemRouter = require('./routes/todoItemsRouter')
 const errorsController = require('./controllers/errors');
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(express.urlencoded());
 app.use(express.static(path.join(rootDir, 'public')))
 
 
-
+app.use("/api/todo", todoItemRouter);
 app.use(errorsController.pageNotFound);
 
 const PORT = 3003;
