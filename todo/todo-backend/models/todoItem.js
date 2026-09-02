@@ -1,23 +1,19 @@
 const mongoose = require('mongoose');
 
-const todoSchema = mongoose.Schema({
+const todoSchema = new mongoose.Schema({ // 'new' keyword lagana best practice hai
     task: {
         type: String,
-        require: true,
-
+        required: true, // ✅ Sahi spelling
     },
     date: {
-        Date,
-
+        type: Date, // ✅ Sahi syntax
     },
     completed: {
         type: Boolean,
         default: false,
     },
-},
-{ timestamps: true}
-);
-
-
+}, { 
+    timestamps: true // Ye automatically createdAt aur updatedAt add karega
+});
 
 module.exports = mongoose.model("TodoItem", todoSchema);

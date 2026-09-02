@@ -5,7 +5,7 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const { default: mongoose } = require('mongoose');
-const DB_PATH = "mongodb+srv://root:root@completecoding.u1asz.mongodb.net/todo?retryWrites=true&w=majority&appName=CompleteCoding";
+const DB_PATH = "mongodb://localhost:27017/todo";
 
 //Local Module
 const todoItemRouter = require('./routes/todoItemsRouter')
