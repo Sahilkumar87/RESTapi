@@ -4,10 +4,16 @@ import TodoItems from "./components/TodoItems";
 import WelcomeMessage from "./components/WelcomeMessage";
 import "./App.css";
 import { useState } from "react";
-import { addItemServer } from "./services/itemService";
+import { addItemServer, getItemFromSever } from "./services/itemService";
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
+
+  useEffect(() => {
+    getItemFromSever().then(initialItems => {
+      setTodoItems(initialItems);
+    });
+  }, [])
 
   const handleNewItem = async (itemName, itemDueDate) => {
     console.log(`New Item Added: ${itemName} Date:${itemDueDate}`);
