@@ -28,11 +28,10 @@ export const markItemCompleted = async (id) => {
 }
 
 export const deleteItemFromServer = async (id) => {
-    const response = await fetch(`http://localhost:3001/api/todo/${id}`, {
+    await fetch(`http://localhost:3001/api/todo/${id}`, {
         method: "DELETE",
     });
-    const item = await response.json();
-    return item._id;
+    return id;
 }
 
 

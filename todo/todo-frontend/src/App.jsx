@@ -4,13 +4,13 @@ import TodoItems from "./components/TodoItems";
 import WelcomeMessage from "./components/WelcomeMessage";
 import "./App.css";
 import { useState } from "react";
-import { addItemServer, getItemFromSever } from "./services/itemService";
+import { addItemServer, getItemFromServer } from "./services/itemService";
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
 
   useEffect(() => {
-    getItemFromSever().then(initialItems => {
+    getItemFromServer().then(initialItems => {
       setTodoItems(initialItems);
     });
   }, [])
